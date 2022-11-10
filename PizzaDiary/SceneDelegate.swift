@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = PizzaIntroViewController()
+        let navVC = UINavigationController(rootViewController: PizzaIntroViewController())
+        window.rootViewController = navVC
         self.window = window
         window.makeKeyAndVisible()
         

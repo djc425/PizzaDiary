@@ -27,10 +27,15 @@ class MainTabBarController: UITabBarController {
         pizzaList.tabBarItem = listIcon
         pizzaMap.tabBarItem = pizzaIcon
 
+        let apperance = UITabBarAppearance()
+        apperance.configureWithOpaqueBackground()
+
+
         let controllers = [pizzaList, pizzaMap]
 
-        //self.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
-        self.viewControllers = controllers
+        // Mapping the view controllers into a nav controller
+        self.viewControllers = controllers.map { UINavigationController(rootViewController: $0)}
+      //  self.viewControllers = controllers
     }
 
 }

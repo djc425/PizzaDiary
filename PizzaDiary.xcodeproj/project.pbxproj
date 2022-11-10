@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1AC3EA28DE4A1A008CF6DD /* PizzaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AC3E928DE4A1A008CF6DD /* PizzaModel.swift */; };
+		6E1AC3EC28DE4C5D008CF6DD /* PizzaAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1AC3EB28DE4C5D008CF6DD /* PizzaAnnotation.swift */; };
 		6ECC428B2895965E00883EA6 /* PizzaIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECC428A2895965E00883EA6 /* PizzaIntroView.swift */; };
 		6ECC428D2895BF0800883EA6 /* MainTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECC428C2895BF0800883EA6 /* MainTabBarControllerViewController.swift */; };
 		6ECC428F2895C66A00883EA6 /* PizzaMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECC428E2895C66A00883EA6 /* PizzaMapViewController.swift */; };
+		6ED559C4291D7BE500132B07 /* PizzaTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED559C3291D7BE500132B07 /* PizzaTableView.swift */; };
 		6EF6349427CC6B1400F8BFB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6349327CC6B1400F8BFB2 /* AppDelegate.swift */; };
 		6EF6349627CC6B1400F8BFB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6349527CC6B1400F8BFB2 /* SceneDelegate.swift */; };
 		6EF6349827CC6B1400F8BFB2 /* PizzaIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6349727CC6B1400F8BFB2 /* PizzaIntroViewController.swift */; };
@@ -19,9 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E1AC3E928DE4A1A008CF6DD /* PizzaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaModel.swift; sourceTree = "<group>"; };
+		6E1AC3EB28DE4C5D008CF6DD /* PizzaAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaAnnotation.swift; sourceTree = "<group>"; };
 		6ECC428A2895965E00883EA6 /* PizzaIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaIntroView.swift; sourceTree = "<group>"; };
 		6ECC428C2895BF0800883EA6 /* MainTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		6ECC428E2895C66A00883EA6 /* PizzaMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaMapViewController.swift; sourceTree = "<group>"; };
+		6ED559C3291D7BE500132B07 /* PizzaTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaTableView.swift; sourceTree = "<group>"; };
 		6EF6349027CC6B1400F8BFB2 /* PizzaDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF6349327CC6B1400F8BFB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EF6349527CC6B1400F8BFB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,16 +49,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E1AC3E728DE4885008CF6DD /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6349727CC6B1400F8BFB2 /* PizzaIntroViewController.swift */,
+				6ECC428A2895965E00883EA6 /* PizzaIntroView.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		6E1AC3E828DE4900008CF6DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E1AC3E928DE4A1A008CF6DD /* PizzaModel.swift */,
+				6E1AC3EB28DE4C5D008CF6DD /* PizzaAnnotation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		6ECC42892895964A00883EA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6EF634A727CD516F00F8BFB2 /* PizzaListTableViewController.swift */,
-				6EF6349727CC6B1400F8BFB2 /* PizzaIntroViewController.swift */,
-				6ECC428E2895C66A00883EA6 /* PizzaMapViewController.swift */,
-				6ECC428A2895965E00883EA6 /* PizzaIntroView.swift */,
-				6ECC428C2895BF0800883EA6 /* MainTabBarControllerViewController.swift */,
+				6E1AC3E728DE4885008CF6DD /* Intro */,
+				6ED559C1291C5FC100132B07 /* Main Map + List */,
+				6ED559C0291C5FB700132B07 /* TabBar */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6ED559C0291C5FB700132B07 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				6ECC428C2895BF0800883EA6 /* MainTabBarControllerViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		6ED559C1291C5FC100132B07 /* Main Map + List */ = {
+			isa = PBXGroup;
+			children = (
+				6ED559C2291D7BC400132B07 /* TableView + Controller */,
+				6ECC428E2895C66A00883EA6 /* PizzaMapViewController.swift */,
+			);
+			path = "Main Map + List";
+			sourceTree = "<group>";
+		};
+		6ED559C2291D7BC400132B07 /* TableView + Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6EF634A727CD516F00F8BFB2 /* PizzaListTableViewController.swift */,
+				6ED559C3291D7BE500132B07 /* PizzaTableView.swift */,
+			);
+			path = "TableView + Controller";
 			sourceTree = "<group>";
 		};
 		6EF6348727CC6B1400F8BFB2 = {
@@ -77,6 +125,7 @@
 				6EF6349327CC6B1400F8BFB2 /* AppDelegate.swift */,
 				6EF6349527CC6B1400F8BFB2 /* SceneDelegate.swift */,
 				6ECC42892895964A00883EA6 /* Views */,
+				6E1AC3E828DE4900008CF6DD /* Models */,
 				6EF6349C27CC6B1400F8BFB2 /* Assets.xcassets */,
 				6EF6349E27CC6B1400F8BFB2 /* LaunchScreen.storyboard */,
 				6EF634A127CC6B1400F8BFB2 /* Info.plist */,
@@ -156,9 +205,12 @@
 			files = (
 				6EF6349827CC6B1400F8BFB2 /* PizzaIntroViewController.swift in Sources */,
 				6EF6349427CC6B1400F8BFB2 /* AppDelegate.swift in Sources */,
+				6E1AC3EA28DE4A1A008CF6DD /* PizzaModel.swift in Sources */,
 				6ECC428F2895C66A00883EA6 /* PizzaMapViewController.swift in Sources */,
+				6ED559C4291D7BE500132B07 /* PizzaTableView.swift in Sources */,
 				6EF634A827CD516F00F8BFB2 /* PizzaListTableViewController.swift in Sources */,
 				6EF6349627CC6B1400F8BFB2 /* SceneDelegate.swift in Sources */,
+				6E1AC3EC28DE4C5D008CF6DD /* PizzaAnnotation.swift in Sources */,
 				6ECC428B2895965E00883EA6 /* PizzaIntroView.swift in Sources */,
 				6ECC428D2895BF0800883EA6 /* MainTabBarControllerViewController.swift in Sources */,
 			);

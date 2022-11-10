@@ -15,6 +15,7 @@ class PizzaIntroViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemOrange
+       // title = "intro"
 
         pizzaIntroView.nextButton.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
     }
