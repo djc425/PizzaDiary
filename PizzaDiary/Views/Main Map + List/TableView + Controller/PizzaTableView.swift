@@ -9,7 +9,6 @@ import UIKit
 
 class PizzaTableView: UIView {
 
-
     let heroImage: UIImageView = {
         let heroImageView = UIImageView()
         heroImageView.image = UIImage(systemName: "bolt.circle")
@@ -41,6 +40,7 @@ class PizzaTableView: UIView {
 
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
+        configureView()
     }
 
     required init?(coder: NSCoder) {
@@ -61,6 +61,7 @@ class PizzaTableView: UIView {
             heroImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
             heroImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             heroImage.heightAnchor.constraint(equalToConstant: 200),
+            heroImage.widthAnchor.constraint(equalTo: heroImage.heightAnchor),
 
             loadingSpinner.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             loadingSpinner.centerYAnchor.constraint(equalTo: self.centerYAnchor),

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class PizzaListTableViewController: UITableViewController {
+class PizzaListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    let pizzaTableView = PizzaTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +17,9 @@ class PizzaListTableViewController: UITableViewController {
        // view.backgroundColor = .cyan
         title = "Pizza List"
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PizzaCell")
+        pizzaTableView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PizzaCell")
+        pizzaTableView.tableView.delegate = self
+        pizzaTableView.tableView.dataSource = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,18 +31,18 @@ class PizzaListTableViewController: UITableViewController {
     
     @objc func addNewPizza() {
         print("its me pizza")
+        navigationController?.pushViewController(AddPizzaViewController(), animated: true)
     }
 
     // MARK: - Table view data source
 
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 5
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PizzaCell", for: indexPath)
 
         var content = cell.defaultContentConfiguration()
@@ -83,3 +87,19 @@ class PizzaListTableViewController: UITableViewController {
 
 }
 
+extension PizzaListTableViewController {
+    override func loadView() {
+        view = UIView()
+        view.addSubview(pizzaTableView)
+        view.backgroundColor = .white
+
+        NSLayoutConstraint.activate([
+            pizzaTableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            pizzaTableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            pizzaTableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            pizzaTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+
+        ])
+
+    }
+}
