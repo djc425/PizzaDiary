@@ -11,23 +11,27 @@ class AddPizzaViewController: UIViewController {
 
     let addProfileView = AddProfileView()
 
+
+
+    private let feedback = UISelectionFeedbackGenerator()
+    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "New Profile"
         // Do any additional setup after loading the view.
-    }
-    
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
     }
-    */
+
+    @objc func buttonTest(){
+        print("Hello")
+    }
+
+
 
 }
 
@@ -36,6 +40,9 @@ extension AddPizzaViewController {
         view = UIView()
         view.backgroundColor = .white
         view.addSubview(addProfileView)
+
+       // addProfileView.starRatingStackView.addGestureRecognizer(tapGestureOnStack)
+        //addProfileView.saveButton.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
             addProfileView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
