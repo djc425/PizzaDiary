@@ -9,6 +9,8 @@ import UIKit
 
 class AddPizzaViewController: UIViewController {
 
+    let addProfileView = AddProfileView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,5 +35,14 @@ extension AddPizzaViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = .white
+        view.addSubview(addProfileView)
+
+        NSLayoutConstraint.activate([
+            addProfileView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            addProfileView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            addProfileView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            addProfileView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+
+        ])
     }
 }
