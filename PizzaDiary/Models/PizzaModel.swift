@@ -7,10 +7,12 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 struct PizzaModel {
     var title: String
     var image: UIImage?
     var url: String
     var notes: String
+    var location: CLLocation
 }
