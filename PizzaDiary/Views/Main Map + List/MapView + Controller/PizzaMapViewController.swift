@@ -6,14 +6,15 @@
 //
 
 import UIKit
-import MapKit
 
-class PizzaMapViewController: UIViewController, MKMapViewDelegate {
 
-    let mapView = MKMapView()
+class PizzaMapViewController: UIViewController {
+
+    let mapView = PizzaMapView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Pizza Map"
 
         // Do any additional setup after loading the view.
     }
@@ -26,20 +27,14 @@ extension PizzaMapViewController {
         view = UIView()
         view.backgroundColor = .white
 
-        title = "Pizza Map"
-
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.isZoomEnabled = true
-
-
         view.addSubview(mapView)
 
         NSLayoutConstraint.activate([
 
-            mapView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            mapView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
         ])
     }
 }
