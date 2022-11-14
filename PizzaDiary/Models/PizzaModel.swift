@@ -15,4 +15,5 @@ struct PizzaModel {
     var url: String
     var notes: String
     var location: CLLocation
+    var address: String
 }

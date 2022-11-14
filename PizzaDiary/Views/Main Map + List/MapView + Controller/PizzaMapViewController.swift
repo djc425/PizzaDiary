@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 
 class PizzaMapViewController: UIViewController {
@@ -23,27 +24,34 @@ class PizzaMapViewController: UIViewController {
     }
 
    private func setLocation() {
-        locationManager.getUserLocation { [weak self] location in
+       locationManager.getUserLocation { [weak self] usersLocation in
             guard let strongSelf = self else {
                 return
             }
+            strongSelf.addMapPin(with: usersLocation)
 
-            let pin = MKPointAnnotation()
-            pin.coordinate = location.coordinate
-            strongSelf.mapView.mapView.addAnnotation(pin)
+        }
+   }
 
-            strongSelf.mapView.mapView.setRegion(
-                MKCoordinateRegion(
+
+    func addMapPin(with location: CLLocation) {
+        let pin = MKPointAnnotation()
+        pin.coordinate = location.coordinate
+        mapView.mapView.addAnnotation(pin)
+
+       mapView.mapView.setRegion(
+            MKCoordinateRegion(
                 center: location.coordinate,
                 span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7)),
-                                                 animated: true)
-        }
+            animated: true)
     }
 
 
 
 }
 
+
+// MARK: Load View Extension
 extension PizzaMapViewController {
     override func loadView() {
         view = UIView()

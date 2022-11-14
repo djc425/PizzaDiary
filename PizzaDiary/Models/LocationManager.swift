@@ -18,14 +18,17 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
     public func getUserLocation(completion: @escaping ((CLLocation) -> Void)) {
         self.completion = completion
-        manager.requestWhenInUseAuthorization()
+
+        if manager.authorizationStatus == .notDetermined || manager.authorizationStatus == .denied {
+            manager.requestWhenInUseAuthorization()
+        }
 
         manager.delegate = self
 
         manager.startUpdatingLocation()
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
             return
         }
