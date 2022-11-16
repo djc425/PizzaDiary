@@ -15,7 +15,7 @@ class AddProfileView: UIView {
     private lazy var profileHeroImage: UIImageView = {
         let phi = UIImageView()
         phi.image = UIImage(systemName: "camera.fill")
-        phi.tintColor = .purple
+        phi.tintColor = .systemYellow.withAlphaComponent(0.4)
         phi.contentMode = .scaleAspectFit
 
         phi.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +33,7 @@ class AddProfileView: UIView {
     private lazy var addressField: UITextField = {
         let af = CustomTextField()
         af.placeholder = "Address"
+        af.returnKeyType = .done
 
         return af
     }()
@@ -50,6 +51,7 @@ class AddProfileView: UIView {
 
     @objc func applyRating(gesture: UITapGestureRecognizer){
         print("hi")
+
         let location = gesture.location(in: starRatingStackView)
         let starWidth = starRatingStackView.bounds.width / CGFloat(Constants.starsCount)
 
@@ -64,6 +66,7 @@ class AddProfileView: UIView {
             }
 
             starImageView.isHighlighted = starImageView.tag <= rate
+
         }
     }
 
@@ -78,14 +81,14 @@ class AddProfileView: UIView {
         button.layer.shadowColor = UIColor.black.cgColor
         button.backgroundColor = .black
         button.tintColor = .white
-        button.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
+      //  button.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
 
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
     @objc func buttonTest(){
-        print("yooooo")
+        
     }
 
 
@@ -109,7 +112,7 @@ class AddProfileView: UIView {
     }
 
     private func createStars() -> UIImageView {
-        let starImages = UIImageView(image: UIImage(systemName: "star"), highlightedImage: UIImage(systemName: "star.fill"))
+        let starImages = UIImageView(image: Constants.starImage, highlightedImage: Constants.highlightedStar)
 
         starImages.contentMode = .scaleAspectFit
         starImages.isUserInteractionEnabled = true
@@ -126,6 +129,9 @@ class AddProfileView: UIView {
         self.addSubview(saveButton)
         self.addSubview(addressField)
         self.addSubview(starRatingStackView)
+
+     //   self.backgroundColor = .systemRed.withAlphaComponent(0.6)
+
 
         let tapGestureOnStack = UITapGestureRecognizer(target: self, action: #selector(applyRating(gesture: )))
         starRatingStackView.addGestureRecognizer(tapGestureOnStack)
@@ -161,6 +167,7 @@ class AddProfileView: UIView {
 }
 
 
+
 // MARK: - CustomTextField
 final class CustomTextField: UITextField {
     var padding = UIEdgeInsets(top: 20/UIScreen.main.scale, left: 10, bottom: 20/UIScreen.main.scale, right: 10)
@@ -168,12 +175,13 @@ final class CustomTextField: UITextField {
     init(padding: UIEdgeInsets = UIEdgeInsets(top: 20/UIScreen.main.scale, left: 10, bottom: 20/UIScreen.main.scale, right: 10), frame: CGRect = .zero) {
         super.init(frame: frame)
         self.padding = padding
-        self.backgroundColor = .purple
+        self.backgroundColor = .systemYellow.withAlphaComponent(0.4)
         self.textAlignment = .left
         self.returnKeyType = .next
         self.autocorrectionType = .no
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 20
+        self.borderStyle = .line
     }
 
     required init?(coder: NSCoder) {
@@ -194,4 +202,9 @@ final class CustomTextField: UITextField {
 
 struct Constants {
     static let starsCount = 5
+
+    static let starImage = UIImage(systemName: "star")
+
+    static let highlightedStar = UIImage(systemName: "star.fill")
 }
+

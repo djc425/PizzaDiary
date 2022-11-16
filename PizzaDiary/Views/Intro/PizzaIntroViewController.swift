@@ -29,7 +29,6 @@ class PizzaIntroViewController: UIViewController {
 
     override func loadView() {
         view = UIView()
-        view.backgroundColor = .green
         view.addSubview(pizzaIntroView)
 
         NSLayoutConstraint.activate([

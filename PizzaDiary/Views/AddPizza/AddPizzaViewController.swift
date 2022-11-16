@@ -23,22 +23,36 @@ class AddPizzaViewController: UIViewController {
         title = "New Profile"
         // Do any additional setup after loading the view.
 
+        addProfileView.saveButton.addTarget(self, action: #selector(buttonTest), for: .touchUpInside)
 
 
     }
 
     @objc func buttonTest(){
-        print("Hello")
+
     }
+
+
+
 
 
 
 }
 
+// MARK: - Validation Alert
+extension AddPizzaViewController {
+     func profileAlert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        present(alert, animated: true)
+    }
+}
+
 extension AddPizzaViewController {
     override func loadView() {
         view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemOrange
         view.addSubview(addProfileView)
 
        // addProfileView.starRatingStackView.addGestureRecognizer(tapGestureOnStack)
