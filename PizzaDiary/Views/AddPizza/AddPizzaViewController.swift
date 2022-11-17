@@ -55,7 +55,7 @@ class AddPizzaViewController: UIViewController {
             }
         }
 
-        if shouldMoveUp {
+        if (shouldMoveUp) {
             self.view.frame.origin.y = 0 - keyboardSize.height
         }
 
@@ -75,8 +75,12 @@ class AddPizzaViewController: UIViewController {
 
 extension AddPizzaViewController: UITextFieldDelegate {
 
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.activeTextField = textField
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //
+        // remove new lines should they be added
         textField.text = textField.text?.trimmingCharacters(in: .newlines)
 
         switch textField {
