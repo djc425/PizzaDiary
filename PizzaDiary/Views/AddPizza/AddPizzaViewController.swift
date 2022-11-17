@@ -74,6 +74,30 @@ class AddPizzaViewController: UIViewController {
 
 
 extension AddPizzaViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //
+        textField.text = textField.text?.trimmingCharacters(in: .newlines)
+
+        switch textField {
+        case addProfileView.nameField :
+            addProfileView.addressField.becomeFirstResponder()
+        case addProfileView.addressField :
+            textField.resignFirstResponder()
+        default:
+            textField.resignFirstResponder()
+        }
+        return false
+
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true) // resigns keyboard when users touches outside of textfield
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.activeTextField = nil
+    }
     
 }
 
