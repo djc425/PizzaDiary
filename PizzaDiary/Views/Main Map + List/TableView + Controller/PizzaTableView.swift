@@ -11,7 +11,7 @@ class PizzaTableView: UIView {
 
     let heroImage: UIImageView = {
         let heroImageView = UIImageView()
-        heroImageView.image = UIImage(systemName: "bolt.circle")
+        heroImageView.image = UIImage(named: "pizzaIcon")
 
         heroImageView.translatesAutoresizingMaskIntoConstraints = false
         return heroImageView
@@ -53,6 +53,8 @@ class PizzaTableView: UIView {
         self.addSubview(tableView)
         self.addSubview(loadingSpinner)
 
+        tableView.backgroundColor = .blue
+
 
         self.translatesAutoresizingMaskIntoConstraints = false
 
@@ -60,17 +62,16 @@ class PizzaTableView: UIView {
 
             heroImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 50),
             heroImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            heroImage.heightAnchor.constraint(equalToConstant: 200),
+            heroImage.heightAnchor.constraint(equalToConstant: 100),
             heroImage.widthAnchor.constraint(equalTo: heroImage.heightAnchor),
 
             loadingSpinner.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             loadingSpinner.centerYAnchor.constraint(equalTo: self.centerYAnchor),
 
-            tableView.topAnchor.constraint(equalTo: heroImage.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: heroImage.bottomAnchor, constant: 100),
+            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
             tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-
         ])
     }
 
