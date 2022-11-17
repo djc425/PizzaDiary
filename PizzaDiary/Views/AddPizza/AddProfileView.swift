@@ -22,15 +22,16 @@ class AddProfileView: UIView {
         return phi
     }()
 
-    private lazy var nameField: UITextField = {
+     lazy var nameField: UITextField = {
         let nf = CustomTextField()
      //   nf.backgroundColor = .blue
         nf.placeholder = "Name"
 
+
         return nf
     }()
 
-    private lazy var addressField: UITextField = {
+     lazy var addressField: UITextField = {
         let af = CustomTextField()
         af.placeholder = "Address"
         af.returnKeyType = .done
@@ -181,7 +182,6 @@ final class CustomTextField: UITextField {
         self.autocorrectionType = .no
         self.translatesAutoresizingMaskIntoConstraints = false
         self.layer.cornerRadius = 20
-        self.borderStyle = .line
     }
 
     required init?(coder: NSCoder) {
