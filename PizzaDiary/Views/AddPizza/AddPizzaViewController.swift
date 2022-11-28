@@ -73,6 +73,23 @@ class AddPizzaViewController: UIViewController {
 }
 
 
+// MARK: CoreData Methods
+extension AddPizzaViewController {
+
+    func getAllPizzaPlaces(){
+
+    }
+
+    func createPizzaPlace(name: String){
+
+    }
+
+    func deletePizzaPlace(_ pizzaPlace: PizzaPlace){
+        
+    }
+}
+
+
 extension AddPizzaViewController: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {

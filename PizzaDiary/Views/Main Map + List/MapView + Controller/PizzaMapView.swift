@@ -40,10 +40,6 @@ class PizzaMapView: UIView, MKMapViewDelegate {
             mapView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 
 
-//            mapView.heightAnchor.constraint(equalTo: self.heightAnchor),
-//            mapView.widthAnchor.constraint(equalTo: self.widthAnchor),
-//            mapView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            mapView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
 
         ])
 

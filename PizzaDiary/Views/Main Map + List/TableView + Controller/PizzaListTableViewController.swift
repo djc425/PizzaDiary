@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PizzaListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PizzaListTableViewController: UIViewController {
 
     let pizzaTableView = PizzaTableView()
     
@@ -34,6 +34,10 @@ class PizzaListTableViewController: UIViewController, UITableViewDelegate, UITab
         navigationController?.pushViewController(AddPizzaViewController(), animated: true)
     }
 
+}
+
+
+extension PizzaListTableViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,19 +45,18 @@ class PizzaListTableViewController: UIViewController, UITableViewDelegate, UITab
         return 5
     }
 
-    
+
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PizzaCell", for: indexPath)
 
         var content = cell.defaultContentConfiguration()
-        
+
         content.text = "this is cell \(indexPath.row)"
-        
+
         cell.contentConfiguration = content
-        
+
         return cell
     }
-    
 
     /*
     // Override to support editing the table view.
@@ -63,7 +66,7 @@ class PizzaListTableViewController: UIViewController, UITableViewDelegate, UITab
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -81,9 +84,6 @@ class PizzaListTableViewController: UIViewController, UITableViewDelegate, UITab
         return true
     }
     */
-
-
-    // MARK: - Navigation
 
 }
 
