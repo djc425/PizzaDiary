@@ -13,6 +13,8 @@ class AddPizzaViewController: UIViewController {
 
     var activeTextField: UITextField? = nil
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -77,15 +79,45 @@ class AddPizzaViewController: UIViewController {
 extension AddPizzaViewController {
 
     func getAllPizzaPlaces(){
+        do {
+            let pizzaPlace = try context.fetch(PizzaPlace.fetchRequest())
 
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
     func createPizzaPlace(name: String){
+        let newPizzaPlace = PizzaPlace(context: context)
 
+        newPizzaPlace.title = name
+        newPizzaPlace.createdAt = Date()
+
+        do {
+            try context.save()
+        } catch {
+
+        }
     }
 
     func deletePizzaPlace(_ pizzaPlace: PizzaPlace){
-        
+        context.delete(pizzaPlace)
+
+        do {
+            try context.save()
+        } catch {
+
+        }
+    }
+
+    func updatePizzaPlace(_ pizzaPLace: PizzaPlace, newName: String) {
+        pizzaPLace.title = newName
+
+        do {
+            try context.save()
+        } catch {
+
+        }
     }
 }
 
