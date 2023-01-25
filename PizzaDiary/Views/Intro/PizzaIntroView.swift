@@ -10,7 +10,8 @@ import UIKit
 
 class PizzaIntroView: UIView {
 
-     lazy var introView: UIView = {
+
+    fileprivate lazy var introView: UIView = {
         let introView =  UIView()
         introView.translatesAutoresizingMaskIntoConstraints = false
          introView.backgroundColor = .systemRed.withAlphaComponent(0.6)
@@ -28,7 +29,7 @@ class PizzaIntroView: UIView {
     }()
 
     
-     lazy var descriptionLabel: UILabel = {
+    fileprivate lazy var descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.text = "In pizza diary you can track your favorite slices, pies, squares and more. Just take a picture to document your favorites and fill out the optional profile to add them to your pizza map"
         descriptionLabel.numberOfLines = 7
@@ -39,7 +40,7 @@ class PizzaIntroView: UIView {
         return descriptionLabel
     }()
 
-    lazy var nextButton: UIButton = {
+   fileprivate lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Start documenting", for: .normal)
         button.backgroundColor = .white
@@ -62,6 +63,8 @@ class PizzaIntroView: UIView {
     }
 
 
+    // MARK: Configure Function
+    // For view setup
    private func configure() {
        self.translatesAutoresizingMaskIntoConstraints = false
        self.addSubview(introView)
