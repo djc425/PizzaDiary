@@ -23,6 +23,7 @@ class PizzaTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
     }
 
     required init?(coder: NSCoder) {
@@ -45,5 +46,21 @@ class PizzaTableViewCell: UITableViewCell {
 
         return rn
     }()
+
+
+    // MARK: prepareForReuse
+    override func prepareForReuse() {
+
+    }
+
+
+
+
+    //MARK: Configure Constraints
+    //TODO: Set up constraints
+
+    private func configureUI(){
+
+    }
 
 }
