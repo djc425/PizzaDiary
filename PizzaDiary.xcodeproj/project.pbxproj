@@ -18,6 +18,7 @@
 		6ED559C4291D7BE500132B07 /* PizzaTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED559C3291D7BE500132B07 /* PizzaTableView.swift */; };
 		6ED559C6291DADFF00132B07 /* AddPizzaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED559C5291DADFF00132B07 /* AddPizzaViewController.swift */; };
 		6ED747612980EFA90078345B /* CoreDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED747602980EFA90078345B /* CoreDataStruct.swift */; };
+		6ED747652980FB6E0078345B /* PizzaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED747642980FB6E0078345B /* PizzaTableViewCell.swift */; };
 		6EE1429529345D2200473E04 /* PizzaCDModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1429329345D2200473E04 /* PizzaCDModel.xcdatamodeld */; };
 		6EE1429829346B7800473E04 /* PizzaPlace+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1429629346B7800473E04 /* PizzaPlace+CoreDataClass.swift */; };
 		6EE1429929346B7800473E04 /* PizzaPlace+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1429729346B7800473E04 /* PizzaPlace+CoreDataProperties.swift */; };
@@ -41,6 +42,7 @@
 		6ED559C3291D7BE500132B07 /* PizzaTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaTableView.swift; sourceTree = "<group>"; };
 		6ED559C5291DADFF00132B07 /* AddPizzaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPizzaViewController.swift; sourceTree = "<group>"; };
 		6ED747602980EFA90078345B /* CoreDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStruct.swift; sourceTree = "<group>"; };
+		6ED747642980FB6E0078345B /* PizzaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaTableViewCell.swift; sourceTree = "<group>"; };
 		6EE1429429345D2200473E04 /* PizzaCDModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PizzaCDModel.xcdatamodel; sourceTree = "<group>"; };
 		6EE1429629346B7800473E04 /* PizzaPlace+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PizzaPlace+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6EE1429729346B7800473E04 /* PizzaPlace+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PizzaPlace+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		6ED559C1291C5FC100132B07 /* Pizza Map + List Views and ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				6ED747632980FB490078345B /* PizzaCell */,
 				6ED559C2291D7BC400132B07 /* TableView + Controller */,
 				6E410D65291F132A0096F768 /* MapView + Controller */,
 			);
@@ -154,6 +157,14 @@
 			children = (
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		6ED747632980FB490078345B /* PizzaCell */ = {
+			isa = PBXGroup;
+			children = (
+				6ED747642980FB6E0078345B /* PizzaTableViewCell.swift */,
+			);
+			path = PizzaCell;
 			sourceTree = "<group>";
 		};
 		6EE1429A2934702800473E04 /* CoreData */ = {
@@ -280,6 +291,7 @@
 				6E410D60291DB00A0096F768 /* AddProfileView.swift in Sources */,
 				6E1AC3EC28DE4C5D008CF6DD /* PizzaAnnotation.swift in Sources */,
 				6E410D67291F174E0096F768 /* LocationManager.swift in Sources */,
+				6ED747652980FB6E0078345B /* PizzaTableViewCell.swift in Sources */,
 				6ECC428B2895965E00883EA6 /* PizzaIntroView.swift in Sources */,
 				6ECC428D2895BF0800883EA6 /* MainTabBarControllerViewController.swift in Sources */,
 				6EE1429929346B7800473E04 /* PizzaPlace+CoreDataProperties.swift in Sources */,
