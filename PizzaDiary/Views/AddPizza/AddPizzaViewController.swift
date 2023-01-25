@@ -13,7 +13,9 @@ class AddPizzaViewController: UIViewController {
 
     var activeTextField: UITextField? = nil
 
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var coreDataMethods = CoreDataMethods()
+
+    var loadedPizzaPlaces = [PizzaPlace]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class AddPizzaViewController: UIViewController {
     }
 
     @objc func saveButtonPressed(){
-
+        print("saved press")
 
     }
 
@@ -67,60 +69,7 @@ class AddPizzaViewController: UIViewController {
         self.view.frame.origin.y = 0
     }
 
-
-
-
-
-
 }
-
-
-// MARK: CoreData Methods
-extension AddPizzaViewController {
-
-    func getAllPizzaPlaces(){
-        do {
-            let pizzaPlace = try context.fetch(PizzaPlace.fetchRequest())
-
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-
-    func createPizzaPlace(name: String){
-        let newPizzaPlace = PizzaPlace(context: context)
-
-        newPizzaPlace.title = name
-        newPizzaPlace.createdAt = Date()
-
-        do {
-            try context.save()
-        } catch {
-
-        }
-    }
-
-    func deletePizzaPlace(_ pizzaPlace: PizzaPlace){
-        context.delete(pizzaPlace)
-
-        do {
-            try context.save()
-        } catch {
-
-        }
-    }
-
-    func updatePizzaPlace(_ pizzaPLace: PizzaPlace, newName: String) {
-        pizzaPLace.title = newName
-
-        do {
-            try context.save()
-        } catch {
-
-        }
-    }
-}
-
 
 extension AddPizzaViewController: UITextFieldDelegate {
 
@@ -156,7 +105,7 @@ extension AddPizzaViewController: UITextFieldDelegate {
 
 // MARK: - Validation Alert
 extension AddPizzaViewController {
-     func profileAlert(title: String, message: String){
+     func profileMissingInformationAlert(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel))

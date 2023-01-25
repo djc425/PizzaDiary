@@ -21,7 +21,7 @@ class PizzaIntroViewController: UIViewController {
     }
     
     @objc func nextPage(){
-        let mainTab = MainTabBarController()
+        let mainTab = PizzaListMapTabBarController()
 
         mainTab.modalPresentationStyle = .fullScreen
         present(mainTab, animated: true)
