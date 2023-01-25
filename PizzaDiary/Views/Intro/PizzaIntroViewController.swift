@@ -39,6 +39,5 @@ class PizzaIntroViewController: UIViewController {
         ])
     }
 
-
 }
 

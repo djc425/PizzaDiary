@@ -10,6 +10,7 @@ import UIKit
 
 struct CoreDataMethods {
 
+    // MARK: Load Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     // loading the pizzaPlaces
@@ -28,6 +29,7 @@ struct CoreDataMethods {
         return pizzaPlaceArray
     }
 
+    // MARK: Create
     func createPizzaPlace(name: String){
         let newPizzaPlace = PizzaPlace(context: context)
 
@@ -37,13 +39,12 @@ struct CoreDataMethods {
         do {
             try context.save()
         } catch {
-
         }
     }
 
+    // MARK: Delete
     func deletePizzaPlace(_ pizzaPlace: PizzaPlace){
         context.delete(pizzaPlace)
-
         do {
             try context.save()
         } catch {
@@ -51,9 +52,10 @@ struct CoreDataMethods {
         }
     }
 
+    // MARK: Update
+    // TODO: Update more than just name
     func updatePizzaPlace(_ pizzaPLace: PizzaPlace, newName: String) {
         pizzaPLace.title = newName
-
         do {
             try context.save()
         } catch {

@@ -10,8 +10,8 @@ import UIKit
 
 class PizzaIntroView: UIView {
 
-
-    fileprivate lazy var introView: UIView = {
+    // MARK: Labels View
+    fileprivate lazy var introLabelsView: UIView = {
         let introView =  UIView()
         introView.translatesAutoresizingMaskIntoConstraints = false
          introView.backgroundColor = .systemRed.withAlphaComponent(0.6)
@@ -19,6 +19,7 @@ class PizzaIntroView: UIView {
         return introView
     }()
 
+    // MARK: Labels
      fileprivate lazy var introLabel: UILabel = {
         let introLabel = UILabel()
         introLabel.text = "Welcome to Pizza Diary"
@@ -28,7 +29,6 @@ class PizzaIntroView: UIView {
         return introLabel
     }()
 
-    
     fileprivate lazy var descriptionLabel: UILabel = {
         let descriptionLabel = UILabel()
         descriptionLabel.text = "In pizza diary you can track your favorite slices, pies, squares and more. Just take a picture to document your favorites and fill out the optional profile to add them to your pizza map"
@@ -40,7 +40,8 @@ class PizzaIntroView: UIView {
         return descriptionLabel
     }()
 
-   fileprivate lazy var nextButton: UIButton = {
+    // MARK: Next Button
+    lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Start documenting", for: .normal)
         button.backgroundColor = .white
@@ -50,8 +51,6 @@ class PizzaIntroView: UIView {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .heavy)
         return button
     }()
-
-
 
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -67,34 +66,31 @@ class PizzaIntroView: UIView {
     // For view setup
    private func configure() {
        self.translatesAutoresizingMaskIntoConstraints = false
-       self.addSubview(introView)
-       introView.addSubview(introLabel)
-       introView.addSubview(descriptionLabel)
+       self.addSubview(introLabelsView)
+       // add the two labels into the one view
+       introLabelsView.addSubview(introLabel)
+       introLabelsView.addSubview(descriptionLabel)
+       // add nextButton
        self.addSubview(nextButton)
 
+       //Constraints
        NSLayoutConstraint.activate([
+        introLabelsView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
+        introLabelsView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4),
+        introLabelsView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
+        introLabelsView.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-        introView.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
-        introView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4),
-        introView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
-        introView.centerXAnchor.constraint(equalTo: centerXAnchor),
+        introLabel.topAnchor.constraint(equalTo: introLabelsView.topAnchor),
+        introLabel.centerXAnchor.constraint(equalTo: introLabelsView.centerXAnchor),
 
-
-        introLabel.topAnchor.constraint(equalTo: introView.topAnchor),
-        introLabel.centerXAnchor.constraint(equalTo: introView.centerXAnchor),
-
-        descriptionLabel.topAnchor.constraint(equalTo: introView.centerYAnchor, constant: -20),
-        descriptionLabel.trailingAnchor.constraint(equalTo: introView.trailingAnchor, constant: -5),
-        descriptionLabel.leadingAnchor.constraint(equalTo: introView.leadingAnchor,constant: 5),
-        descriptionLabel.centerXAnchor.constraint(equalTo: introView.centerXAnchor),
+        descriptionLabel.topAnchor.constraint(equalTo: introLabelsView.centerYAnchor, constant: -20),
+        descriptionLabel.trailingAnchor.constraint(equalTo: introLabelsView.trailingAnchor, constant: -5),
+        descriptionLabel.leadingAnchor.constraint(equalTo: introLabelsView.leadingAnchor,constant: 5),
+        descriptionLabel.centerXAnchor.constraint(equalTo: introLabelsView.centerXAnchor),
 
         nextButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         nextButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200),
         nextButton.widthAnchor.constraint(equalToConstant: 185)
-
        ])
-
-
     }
-
 }
