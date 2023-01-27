@@ -16,4 +16,7 @@ struct PizzaModel {
     var notes: String
     var location: CLLocation
     var address: String
+
+    var isFavorite: Bool = false
+    var routeWith: Bool = false
 }
